@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= title %></title>
+		<link rel="stylesheet" href="/stylesheets/style.css" />
+	</head>
+	<body>
+		<h1><%= title %></h1>
+		<form action="<%= action %>" method="POST">
+			<p>Autor:&nbsp;<input type="text" name="author" value="<%= docs.author %>" />&nbsp;<input type="submit" value="Pesquisar"></p>
+			
+		</form>
+		<hr />
+    	<ul>
+	    	<% docs.forEach(function(author) { %>
+	    		<li>
+	    			<strong><%= author.author %></strong><br/>
+	    			<a href="/book/edit/<%= author._id %>"><%= author.title %></a>&nbsp;&nbsp;
+	    			[&nbsp;<a href="/book/delete/<%= author._id %>" onclick="return confirm('Tem certeza quedeseja excluir esse registro?');">X</a>&nbsp;]<br/><br/>
+	    		</li>
+	    	<% }) %>
+	    </ul>
+	    <hr />
+    	<a href="/book/new">Cadastrar Novo</a>		
+	</body>
+</html>

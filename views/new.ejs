@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= title %></title>
+		<link rel="stylesheet" href="/stylesheets/style.css" />
+	</head>
+	<body>
+		<h1<%= title %>></h1>
+		<form action="<%= action %>" method="POST">
+			<p>ID:<input type="text" name="id" value="<%= doc.id %>" /></p>
+			<p>Nome:<input type="text" name="fullname" value="<%= doc.fullname %>" /></p>
+			<p>Sexo:<select name="gender" value="<%= doc.gender %>">
+				<option selected="selected">Escolha</option>
+				<option
+					<%if(doc.gender=='Male') { %>
+						<%= 'selected=selected'%>
+					<% } %>
+				>
+					Male
+				</option>
+				<option
+					<%if(doc.gender=='Female') { %>
+						<%= 'selected=selected'%>
+					<% } %>
+				>
+					Female
+				</option>
+			</select>
+			<p>Idade:<input type="text" name="age" value="<%= doc.age %>" /></p>
+			<p>E-mail:<input type="text" name="email" value="<%= doc.email %>"></p>
+			<p>Telefone:<input type="text" name="phone" value="<%= doc.phone %>" /></p>
+			<p>Usuario:<input type="text" name="username" value="<%= doc.username %>" /></p>
+			<input type="submit" value="Enviar">
+		</form>
+	</body>
+</html>

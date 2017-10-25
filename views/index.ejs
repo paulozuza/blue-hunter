@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <form action="<%= action %>" method="POST">
+      <p>Usuário:&nbsp;<input type="text" name="user" value="<%= docs.fullname %>" />&nbsp;<input type="submit" value="Pesquisar"></p>
+    </form>
+    <hr />    
+    <ul>
+    	<% docs.forEach(function(users) { %>
+    		<li>
+    			<a href="/edit/<%= users._id %>"><%= users.fullname %></a>&nbsp;&nbsp;
+            [&nbsp;<a href="/delete/<%= users._id %>" onclick="return confirm('Tem certeza quedeseja excluir esse registro?');">X</a>&nbsp;]<br/><br/>
+    		</li>
+    	<% }) %>
+    </ul>
+    <hr />
+    <a href="/new">Cadastrar Novo</a>
+    <hr />
+    <a href="/user/by-name">Todos</a>    
+  </body>
+</html>
